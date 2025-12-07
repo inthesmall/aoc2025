@@ -1,5 +1,13 @@
-// package uk.co.ethanmills.me
-
 fun main() {
-    println("Hello, world!")
+    for (day in 1..12) {
+        val clazz = Class.forName(::main.javaClass.module, "Day${day}Kt")
+        if (clazz != null) {
+            println("Day $day")
+            println(
+                clazz.getMethod("day${day}")
+                    .invoke(null)
+            )
+            println()
+        }
+    }
 }
